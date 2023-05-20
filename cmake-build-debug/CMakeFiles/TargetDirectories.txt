@@ -1,0 +1,3 @@
+D:/Files_Work/JetBrains/CLion/Project/ToDo-List/cmake-build-debug/CMakeFiles/ToDo_List.dir
+D:/Files_Work/JetBrains/CLion/Project/ToDo-List/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Files_Work/JetBrains/CLion/Project/ToDo-List/cmake-build-debug/CMakeFiles/rebuild_cache.dir
