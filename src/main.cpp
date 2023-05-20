@@ -16,7 +16,7 @@
 
 #include "consoleset.h"
 #include "file.h"
-#include "output.h"
+#include "operation.h"
 
 
 using namespace std;
@@ -25,6 +25,8 @@ int main()
 	Output output;
 	output.startInit();
 
+	//File fl;
+	//fl.fileModifyList('3');
 
 
 	system("pause>nul");

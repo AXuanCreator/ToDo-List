@@ -19,6 +19,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <vector>
 #include "consoleset.h"
 
 using namespace std;
@@ -29,13 +30,21 @@ private:
 	tm* date = ConsoleSet::getTime();
 	ifstream inFile;
 	ofstream outFile;
+	fstream  ioFile;
 public:
 
-	void fileCreat();
 	void fileCreatList();
+	void fileAddList(vector<string>& list);
+	void fileModifyList(char level);
+
+	int fileFineLevel();
 
 	string getDateName();
 	string getFileName();
+	vector<string> fileFindList();
+
+	streampos getLinePos(const string& pattern);
+
 
 	bool checkDateName(const string& datename, const string& filename);
 

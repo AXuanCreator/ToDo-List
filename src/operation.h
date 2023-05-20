@@ -3,29 +3,40 @@
 //
 
 /*
- * 此类，用于控制所有用户操作有关的操作
- * 选择新建ToDo
- * 选择删除ToDo
- * 选择显示指定日期ToDo
- * 选择显示当前日期ToDo
+ * 此类用于控制所有操作
+ * ALL
  */
 #ifndef OPERATION_H
 #define OPERATION_H
 
-#include <sstream>
-#include "file.h"
 #include "consoleset.h"
+#include "file.h"
+#include <iostream>
+#include <conio.h>
 
+#define CLS system("cls")
+#define PAUSE system("pause>nul")
 using namespace std;
 
-static tm* date = ConsoleSet::getTime();
-
-class Operation
+class Output
 {
 private:
-	File fileCtr;
+	ConsoleSet consoleSet;
+	File file;
 public:
+
+	void startInit();
 	void creatList();
+	void inquireList();
+	void addList();
+	void modifyList();
+	void showList(const vector<string>& list);
+
+	vector<string> addList(int level);
+
+	static bool judgeYN();
+
+
 };
 
 

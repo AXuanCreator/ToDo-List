@@ -55,20 +55,14 @@ build CMakeFiles/ToDo_List.dir/src/main.cpp.obj: CXX_COMPILER__ToDo_List_Debug D
   OBJECT_DIR = CMakeFiles\ToDo_List.dir
   OBJECT_FILE_DIR = CMakeFiles\ToDo_List.dir\src
 
-build CMakeFiles/ToDo_List.dir/src/operation.cpp.obj: CXX_COMPILER__ToDo_List_Debug D$:/Files_Work/JetBrains/CLion/Project/ToDo-List/src/operation.cpp || cmake_object_order_depends_target_ToDo_List
-  DEP_FILE = CMakeFiles\ToDo_List.dir\src\operation.cpp.obj.d
-  FLAGS = -g -fdiagnostics-color=always
-  OBJECT_DIR = CMakeFiles\ToDo_List.dir
-  OBJECT_FILE_DIR = CMakeFiles\ToDo_List.dir\src
-
 build CMakeFiles/ToDo_List.dir/src/consoleset.cpp.obj: CXX_COMPILER__ToDo_List_Debug D$:/Files_Work/JetBrains/CLion/Project/ToDo-List/src/consoleset.cpp || cmake_object_order_depends_target_ToDo_List
   DEP_FILE = CMakeFiles\ToDo_List.dir\src\consoleset.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\ToDo_List.dir
   OBJECT_FILE_DIR = CMakeFiles\ToDo_List.dir\src
 
-build CMakeFiles/ToDo_List.dir/src/output.cpp.obj: CXX_COMPILER__ToDo_List_Debug D$:/Files_Work/JetBrains/CLion/Project/ToDo-List/src/output.cpp || cmake_object_order_depends_target_ToDo_List
-  DEP_FILE = CMakeFiles\ToDo_List.dir\src\output.cpp.obj.d
+build CMakeFiles/ToDo_List.dir/src/operation.cpp.obj: CXX_COMPILER__ToDo_List_Debug D$:/Files_Work/JetBrains/CLion/Project/ToDo-List/src/operation.cpp || cmake_object_order_depends_target_ToDo_List
+  DEP_FILE = CMakeFiles\ToDo_List.dir\src\operation.cpp.obj.d
   FLAGS = -g -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\ToDo_List.dir
   OBJECT_FILE_DIR = CMakeFiles\ToDo_List.dir\src
@@ -87,7 +81,7 @@ build CMakeFiles/ToDo_List.dir/src/file.cpp.obj: CXX_COMPILER__ToDo_List_Debug D
 #############################################
 # Link the executable ToDo_List.exe
 
-build ToDo_List.exe: CXX_EXECUTABLE_LINKER__ToDo_List_Debug CMakeFiles/ToDo_List.dir/src/main.cpp.obj CMakeFiles/ToDo_List.dir/src/operation.cpp.obj CMakeFiles/ToDo_List.dir/src/consoleset.cpp.obj CMakeFiles/ToDo_List.dir/src/output.cpp.obj CMakeFiles/ToDo_List.dir/src/file.cpp.obj
+build ToDo_List.exe: CXX_EXECUTABLE_LINKER__ToDo_List_Debug CMakeFiles/ToDo_List.dir/src/main.cpp.obj CMakeFiles/ToDo_List.dir/src/consoleset.cpp.obj CMakeFiles/ToDo_List.dir/src/operation.cpp.obj CMakeFiles/ToDo_List.dir/src/file.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\ToDo_List.dir
