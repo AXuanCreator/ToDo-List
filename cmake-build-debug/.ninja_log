@@ -73,3 +73,7 @@
 1016	1090	7062960442326397	ToDo_List.exe	1c14e8823c6beaf7
 2	1043	7062960726862144	CMakeFiles/ToDo_List.dir/src/operation.cpp.obj	f1e9509335bfc4e3
 1043	1132	7062960727710410	ToDo_List.exe	1c14e8823c6beaf7
+2	907	7063619662316715	CMakeFiles/ToDo_List.dir/src/main.cpp.obj	9c60018edaa378e
+5	982	7063619663064127	CMakeFiles/ToDo_List.dir/src/file.cpp.obj	76c4a17bcfca6ef6
+4	1055	7063619663798533	CMakeFiles/ToDo_List.dir/src/operation.cpp.obj	f1e9509335bfc4e3
+1055	1143	7063619664585514	ToDo_List.exe	1c14e8823c6beaf7

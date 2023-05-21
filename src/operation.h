@@ -29,10 +29,14 @@ public:
 	void creatList();
 	void inquireList();
 	void addList();
+	void addList(vector<string>& list);
 	void modifyList();
-	void showList(const vector<string>& list);
+	void deleteList();
+	static void showList(const vector<string>& list);
 
-	vector<string> addList(int level);
+
+	vector<string> inputList(int level);
+
 
 	static bool judgeYN();
 

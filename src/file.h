@@ -36,12 +36,16 @@ public:
 	void fileCreatList();
 	void fileAddList(vector<string>& list);
 	void fileModifyList(char level);
+	void fileDeleteList(unsigned char level);
 
 	int fileFineLevel();
 
 	string getDateName();
+	string getDateName(int past);
 	string getFileName();
+
 	vector<string> fileFindList();
+	vector<string> fileFindUndone();
 
 	streampos getLinePos(const string& pattern);
 

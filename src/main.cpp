@@ -32,3 +32,7 @@ int main()
 	system("pause>nul");
 	return 0;
 }
+
+// TODO:[优化]开始菜单的输入可以使用_getch，提高效率
+// TODO:[优化]file.cpp在检测日期所在的streampos时，推荐使用find()，以免日期前有空格或者其他东西导致检测失败
+// TODO:[优化]完成和删除时可以先检测今日的ToDo-List是否为空

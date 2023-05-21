@@ -33,7 +33,7 @@ void Output::startInit()
 			cout << "[2]查询今日ToDo-List" << endl;
 			cout << "[3]新增今日ToDo-List" << endl;
 			cout << "[4]删除今日ToDo-List" << endl;
-			cout << "[5]修改今日ToDo-List" << endl;
+			cout << "[5]完成今日ToDo-List" << endl;
 			cout << "[6]退出ToDo-List" << endl;
 			int option;
 			cout << "请输入选项: [ ]";
@@ -48,30 +48,24 @@ void Output::startInit()
 			}
 
 			if (option == 1)
-			{
 				creatList();
-			}
+
 			if (option == 2)
-			{
 				inquireList();
 				PAUSE;
-			}
-
 
 			if (option == 3)
 				addList();
 
 			if (option == 4)
-			{
-				//TODO: 删除今日List，和打勾一个原理，直接用空格替换，输出的时候会跳过空行的
-			}
+				deleteList();
+
 			if (option == 5)
 				modifyList();
 
 			if (option == 6)
-			{
 				return;
-			}
+
 		}
 
 	}
@@ -86,10 +80,29 @@ void Output::startInit()
  */
 void Output::creatList()
 {
+	if(file.checkDateName(file.getDateName(),file.getFileName()))
+	{
+		CLS;
+		cout << "你已创建今日ToDo-List，请勿重复创建。";
+		PAUSE;
+		return;
+	}
+
 	file.fileCreatList();
 	CLS;
-	cout << "创建成功，是否新增今天的ToDo-List [y/n]" << endl;
-	// TODO:创建之后需要检测昨天的任务是否全部完成，若未完成，则自动添加到今日
+	cout << "创建成功，正在检测昨日未完成事项..." << endl;
+	Sleep(500);
+	cout << "检测完成，以下是昨日未完成事项，是否需要增加到今天的ToDo-List? [y/n]" << endl;
+	vector<string> list = file.fileFindUndone();
+	showList(list);
+	if(judgeYN())
+	{
+		CLS;
+		addList(list);
+		cout << "新增成功!" << endl;
+	}
+
+	cout << "是否新增今天的ToDo-List [y/n]" << endl;
 	if (judgeYN())
 		addList();
 }
@@ -102,9 +115,6 @@ void Output::creatList()
  */
 void Output::inquireList()
 {
-	// TODO:如果没有创建，则应该有提示是否创建
-	// TODO:下面这段代码，如果有的话，会导致不能正常输出
-
 	CLS;
 	if (!file.checkDateName(file.getDateName(), file.getFileName()))
 	{
@@ -122,16 +132,30 @@ void Output::inquireList()
 }
 
 /*
- * 函数名: addList
- * In: void
+ * 函数名: inputList
+ * In: void / vector<string>&
  * Out: void
- * 作用: 新增今日ToDo-List
+ * 作用: 新增今日ToDo-List [手动/列表]
  */
 void Output::addList()
 {
-	vector<string> list = addList(file.fileFineLevel());
+	vector<string> list = inputList(file.fileFineLevel());
 	file.fileAddList(list);
 }
+void Output::addList(vector<string>& list)
+{
+	// 对list进行排序
+	int level = file.fileFineLevel() + 1; // +1是因为如果没有任何内容，会返回0
+	for(auto& line : list)
+	{
+		line.replace(3,1,to_string(level));
+		++level;
+	}
+
+	// 添加
+	file.fileAddList(list);
+}
+
 
 /*
  * 函数名: modifyList
@@ -145,7 +169,7 @@ void Output::modifyList()
 	inquireList();
 	while (true)
 	{
-		cout << "[按下已完成项目所对应的数字编号，按q退出]";
+		cout << "\n[按下已完成项目所对应的数字编号，按q退出]";
 		level = static_cast<char>(_getch());
 		file.fileModifyList(level);
 		inquireList();
@@ -156,6 +180,29 @@ void Output::modifyList()
 }
 
 /*
+ * 函数名: deleteList
+ * In:void
+ * Out:void
+ * 作用:删除今日ToDo-List
+ */
+void Output::deleteList()
+{
+	char level;
+	inquireList();
+	while (true)
+	{
+		cout << "\n[按下需要删除项目的所对应的数字编号，按q退出]";
+		level = static_cast<char>(_getch());
+		file.fileDeleteList(level);
+		inquireList();
+
+		if (level == 'q')
+			break;
+	}
+}
+
+
+/*
  * 函数名: showList
  * In: const vector<string>&
  * Out: void
@@ -163,20 +210,23 @@ void Output::modifyList()
  */
 void Output::showList(const vector<string>& list)
 {
-	consoleSet.setCursor(0, 1);
+	//consoleSet.setCursor(0, 1);
+	cout << endl;
 	for (auto& str : list)
 	{
+		if(str.empty())
+			continue;
 		cout << str << endl;
 	}
 }
 
 /*
- * 函数名: addList
+ * 函数名: inputList
  * In: int [level]已有的事项数
  * Out: vector<string>
  * 作用: 输入并返回待做事项列表
  */
-vector<string> Output::addList(int level)
+vector<string> Output::inputList(int level)
 {
 	vector<string> list;
 
